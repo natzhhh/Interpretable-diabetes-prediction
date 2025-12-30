@@ -8,7 +8,7 @@ import dice_ml
 #from dice_ml import Data, Model, Dice
 from sklearn.pipeline import Pipeline
 import streamlit.components.v1 as components
-from IPython.display import display
+#from IPython.display import display
 
 # --- 1. SETTINGS & ASSETS ---
 st.set_page_config(page_title="Interpretaple Diabetes Prediction and Personalized Counterfactual Visualization Model ", layout="wide")
@@ -243,5 +243,6 @@ st.write("Columns found in CSV:", train_df.columns.tolist())
 st.write("Columns expected as Continuous:", feature_names[:-1])
 st.write("Target column expected:", 'Analysis')
 # -----------------------
+
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
