@@ -86,7 +86,7 @@ if st.session_state.prediction_done:
     
     # TABS FOR NAVIGATION
     tab_global, tab_shap, tab_dice, tab_dice2, tab_dice3, tab_eval = st.tabs([
-        "🌍 Global Analysis", "🔍 SHAP Local", "🛠️ Counterfactual for Healthy(0)","🛠️ Counterfactual for Prediabetes(1)","🛠️ Counterfactual for Diabetes(2)", "📋 Interview"
+        "🌍 Global Analysis", "🔍 SHAP Local", "🛠️ Counterfactual for Healthy(0)","🛠️ Counterfactual for Prediabetes(1)","🛠️ Counterfactual for Diabetes(2)", "📋 Trust Measuring Questionnaires"
     ])
 
     # --- TAB: GLOBAL ANALYSIS ---
@@ -246,6 +246,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
