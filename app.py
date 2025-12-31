@@ -239,11 +239,12 @@ if st.session_state.prediction_done:
 
 
     # --- DEBUGGING LINES ---
-st.write("Columns found in CSV:", train_df.columns.tolist())
-st.write("Columns expected as Continuous:", feature_names[:-1])
-st.write("Target column expected:", 'Analysis')
+#st.write("Columns found in CSV:", train_df.columns.tolist())
+#st.write("Columns expected as Continuous:", feature_names[:-1])
+#st.write("Target column expected:", 'Analysis')
 # -----------------------
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
