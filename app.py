@@ -232,7 +232,7 @@ if st.session_state.prediction_done:
     
     # --- TAB: INTERVIEW / GOOGLE FORM ---
     with tab_eval:
-        st.subheader("Trust Evaluation Interview")
+        st.subheader("Trust Evaluation Form")
         # Replace with your actual Google Form Embed Link
         google_form_url = "https://docs.google.com/forms/d/e/1FAIpQLScZqME439c2rH3Oa0Ylxt3amN3S1t0xOxBKFVrSqw_qqlYgVg/viewform?usp=publish-editor"
         components.iframe(google_form_url, height=800, scrolling=True)
@@ -246,5 +246,6 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
