@@ -224,8 +224,20 @@ if st.session_state.prediction_done:
             st.write("This is the patient's actual recorded data:")
             st.dataframe(raw_input)
             st.divider() # Visual separator
-            st.write("Inorder not to become **Diabetes**, the patient should be careful for these biomarker changes:")
-            st.dataframe(cf.cf_examples_list[0].final_cfs_df)
+            
+            # 1. Get the original data and the generated counterfactuals
+            query_instance = cf.cf_examples_list[0].test_instance_df
+            cf_df = cf.cf_examples_list[0].final_cfs_df
+
+            # 2. Identify only the columns where the counterfactual value is different from the original
+            # We use .iloc[0] because query_instance is a single-row dataframe
+            changed_cols = [col for col in cf_df.columns if not (cf_df[col] == query_instance[col].iloc[0]).all()]
+
+            # 3. Display the selective dataframe
+            st.subheader("Selective Counterfactuals: Minimal Changes Required")
+            st.dataframe(cf_df[changed_cols])
+            #st.write("Inorder not to become **Diabetes**, the patient should be careful for these biomarker changes:")
+            #st.dataframe(cf.cf_examples_list[0].final_cfs_df)
             #st.dataframe(cf.visualize_as_dataframe(show_only_changes=True))
         else:
             st.success("Patient is already in the same Class. No intervention needed.")
@@ -246,6 +258,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
