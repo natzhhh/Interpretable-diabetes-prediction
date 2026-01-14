@@ -27,7 +27,7 @@ def load_assets():
     return model, scaler, pipeline, train_df
 
 rf_model, scaler, pipeline, train_df = load_assets()
-feature_names = ['AGE', 'Urea', 'Cr', 'HbA1c', 'Chol ', 'TG', 'HDL', 'LDL', 'VLDL', 'BMI', 'Gender_Encoded']
+feature_names = ['AGE', 'Urea', 'Cr', 'HbA1c', 'Chol', 'TG', 'HDL', 'LDL', 'VLDL', 'BMI', 'Gender_Encoded']
 
 
 model_pipeline = Pipeline([
@@ -268,6 +268,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
