@@ -200,10 +200,12 @@ if st.session_state.prediction_done:
         original_age = float(raw_input['AGE'].iloc[0])
         # Define Age constraint: Cannot go below current age
         age_constraint = [original_age, 100.0] 
+        hba1c_constraint = [4.0, 15.0] 
+        bmi_constraint = [18.0, 30.0] 
         st.write(current_pred)
         if current_pred != 1:
             # Generate 2 counterfactuals to show how to reach Class 0 (Healthy)
-            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=1, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range={'AGE': age_constraint})
+            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=1, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range={'AGE': age_constraint,'HbA1c': hba1c_constraint,'BMI': bmi_constraint})
             # 1. DISPLAY ORIGINAL DATA
             st.markdown("### **Step 1: Current Patient Profile**")
             st.write("This is the patient's actual recorded data:")
@@ -231,7 +233,7 @@ if st.session_state.prediction_done:
         st.write(current_pred)
         if current_pred != 2:
             # Generate 2 counterfactuals to show how to reach Class 0 (Healthy)
-            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=2, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range={'AGE': age_constraint})
+            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=2, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range={'AGE': age_constraint,'HbA1c': hba1c_constraint,'BMI': bmi_constraint})
            # 1. DISPLAY ORIGINAL DATA
             st.markdown("### **Step 1: Current Patient Profile**")
             st.write("This is the patient's actual recorded data:")
@@ -271,6 +273,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
