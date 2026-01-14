@@ -171,7 +171,7 @@ if st.session_state.prediction_done:
         st.write(current_pred)
         if current_pred != 0:
             # Generate 2 counterfactuals to show how to reach Class 0 (Healthy)
-            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=0, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range= clinical_constraints)
+            cf = exp_dice.generate_counterfactuals(raw_input, total_CFs=2, desired_class=0, features_to_vary=['HbA1c', 'BMI', 'TG', 'Chol'], permitted_range=clinical_constraints)
             # 1. DISPLAY ORIGINAL DATA
             st.markdown("### **Step 1: Current Patient Profile**")
             st.write("This is the patient's actual recorded data:")
@@ -268,6 +268,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
