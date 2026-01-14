@@ -39,7 +39,7 @@ if 'prediction_done' not in st.session_state:
     st.session_state.prediction_done = False
 
 # --- 2. FRONT PAGE: 11 FACTORS INPUT ---
-st.title("🩺 Interpretaple Diabetes Prediction and Personalized Counterfactual Visualization Model")
+st.title("🩺 Interpretaple Diabetes Mellitus Prediction and Personalized Counterfactual Visualization Model")
 st.markdown("### Patient Biomarker Entry")
 st.write("Enter the raw clinical values below to begin the analysis.")
 
@@ -275,6 +275,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
