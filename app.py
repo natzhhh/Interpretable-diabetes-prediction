@@ -11,8 +11,12 @@ import streamlit.components.v1 as components
 #from IPython.display import display
 
 # --- 1. SETTINGS & ASSETS ---
-st.set_page_config(page_title="Interpretaple Diabetes Prediction and Personalized Counterfactual Visualization Model ", layout="wide")
-
+st.set_page_config(page_title="Interpretaple Diabetes Mellitus Prediction and Personalized Counterfactual Visualization Model ", layout="wide")
+st.markdown("""
+    <p style='font-size: 18px; color: gray; margin-top: -20px;'>
+    This model was trained based on the Iraqi Diabetes dataset. https://data.mendeley.com/datasets/wj9rwkp9c2/1 
+    </p>
+    """, unsafe_allow_html=True)
 @st.cache_resource
 def load_assets():
     model = joblib.load('random_model.pkl')
@@ -23,7 +27,7 @@ def load_assets():
     return model, scaler, pipeline, train_df
 
 rf_model, scaler, pipeline, train_df = load_assets()
-feature_names = ['AGE', 'Urea', 'Cr', 'HbA1c', 'Chol', 'TG', 'HDL', 'LDL', 'VLDL', 'BMI', 'Gender_Encoded']
+feature_names = ['AGE', 'Urea', 'Cr', 'HbA1c', 'Chol ', 'TG', 'HDL', 'LDL', 'VLDL', 'BMI', 'Gender_Encoded']
 
 
 model_pipeline = Pipeline([
@@ -44,18 +48,18 @@ with st.container():
     
     with col1:
         age = st.number_input("Age", value=45)#45
-        urea = st.number_input("Urea", value=5.0)#5.0
-        cr = st.number_input("Cr (Creatinine)", value=80.0)#80.0
+        urea = st.number_input("Urea  mmol/L", value=5.0)#5.0
+        cr = st.number_input("Cr (Creatinine) mg/dL", value=80.0)#80.0
         hba1c = st.number_input("HbA1c (%)", value=6.0)#6.0
     
     with col2:
-        chol = st.number_input("Cholesterol", value=4.5)#4.5
-        tg = st.number_input("TG (Triglycerides)", value=1.5)#1.5
-        hdl = st.number_input("HDL", value=1.2)#1.2
-        ldl = st.number_input("LDL", value=3.0)#3.0
+        chol = st.number_input("Cholesterol  mmol/L", value=4.5)#4.5
+        tg = st.number_input("TG (Triglycerides) mmol/L", value=1.5)#1.5
+        hdl = st.number_input("HDL mmol/L", value=1.2)#1.2
+        ldl = st.number_input("LDL mmol/L", value=3.0)#3.0
 
     with col3:
-        vldl = st.number_input("VLDL", value=0.6)#0.6
+        vldl = st.number_input("VLDL mmol/L", value=0.6)#0.6
         bmi = st.number_input("BMI", value=26.0)#26.0
         gender = st.selectbox("Gender", options=["Male", "Female"])#1
         gender_encoded = 1 if gender == "Male" else 0
@@ -258,6 +262,7 @@ if st.session_state.prediction_done:
 
 
 #d_data = Data(dataframe=train_df, continuous_features=feature_names[:-1], outcome_name='Analysis')
+
 
 
 
